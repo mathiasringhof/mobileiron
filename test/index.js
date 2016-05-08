@@ -11,6 +11,11 @@ const nock = require('nock')
 const HOST = 'http://test.mobileiron'
 const PATH = '/company'
 const BASE_URL = `${HOST}${PATH}`
+const BASE_OPTS = {
+  baseUrl: BASE_URL,
+  username: '123',
+  password: 'abc'
+}
 
 describe('mobileiron', function () {
   before(function () {
@@ -31,7 +36,7 @@ describe('mobileiron', function () {
             vspVersion: 'VSP x.0.0.0 Build xxx '
           }
         })
-      assert.eventually.deepEqual(mobileiron.ping(BASE_URL, '123', 'abc'),
+      assert.eventually.deepEqual(mobileiron.ping(BASE_OPTS),
         {
           apiVersion: 2,
           vspVersion: 'VSP x.0.0.0 Build xxx '

@@ -1,5 +1,9 @@
 # mobileiron [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-> Unofficial library for MobileIron REST API
+> Unofficial library for MobileIron's v2 REST API
+
+## Requirements
+
+Developed using Node 5.x, should work with 4.x.  
 
 ## Installation
 
@@ -10,10 +14,26 @@ $ npm install --save mobileiron
 ## Usage
 
 ```js
-var mobileiron = require('mobileiron');
+const mobileiron = require('mobileiron')
+const baseOpts = mobileiron.createBaseOpts('https://xx.mobileiron.net/company/rest', 'apiuser', 'password')
+const devicesOpts = mobileiron.createDevicesOpts(baseOpts, ['common.uuid'], 'retired=false', 1)
+mobileiron
+  .ping(baseOpts)
+  .then(() => mobileiron.devices(devicesOpts))
+  .then(devices => devices.map(device => device['common.uuid']))
+  .then(deviceUuids => {
+    console.log(`Found ${deviceUuids.length} devices with the following UUIDs:\n${deviceUuids.join('\n')}`)
+  })
+  .catch(err => {
+    console.error('Failed to connect to MobileIron v2 API: %j', err)
+  })
 ```
 
-TODO
+## TODO / Next up
+
+* tests for devices API
+* app inventory API
+* better error handling (e.g. react to 400, 401 with specific errors)?
 
 ## License
 
