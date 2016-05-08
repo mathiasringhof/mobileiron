@@ -1,10 +1,41 @@
 'use strict';
 
-var assert = require('assert');
-var mobileiron = require('../lib');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+const assert = chai.assert;
+
+const mobileiron = require('../lib');
+const nock = require('nock');
+
+const HOST = 'http://test.mobileiron';
+const PATH = '/company';
+const BASE_URL = `${HOST}${PATH}`;
 
 describe('mobileiron', function () {
-  it('should have unit test!', function () {
-    assert(false, 'we expected this package author to add actual unit tests.');
+  before(function () {
+    nock.disableNetConnect();
+  });
+
+  after(function () {
+    nock.enableNetConnect();
+  });
+
+  describe('ping', function () {
+    it('should return the results object from <baseUrl>/api/v2/ping', function () {
+      nock(HOST)
+        .get(`${PATH}/api/v2/ping`)
+        .reply(200, {
+          results: {
+            apiVersion: 2,
+            vspVersion: 'VSP x.0.0.0 Build xxx '
+          }
+        });
+      assert.eventually.deepEqual(mobileiron.ping(BASE_URL, '123', 'abc'),
+        {
+          apiVersion: 2,
+          vspVersion: 'VSP x.0.0.0 Build xxx '
+        });
+    });
   });
 });

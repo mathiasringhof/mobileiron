@@ -26,7 +26,8 @@
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-plumber": "^1.0.0",
+    "nock": "^8.0.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -37,11 +38,13 @@
   "repository": "mathiasringhof/mobileiron",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+    "test:watch": "gulp watch"
   },
   "license": "Apache-2.0",
   "dependencies": {
     "bluebird": "^3.3.5",
+    "chai-as-promised": "^5.3.0",
     "request-promise": "^3.0.0"
   }
 }
