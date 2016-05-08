@@ -1,25 +1,25 @@
-'use strict';
+'use strict'
 
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
-const assert = chai.assert;
+const chai = require('chai')
+const chaiAsPromised = require('chai-as-promised')
+chai.use(chaiAsPromised)
+const assert = chai.assert
 
-const mobileiron = require('../lib');
-const nock = require('nock');
+const mobileiron = require('../lib')
+const nock = require('nock')
 
-const HOST = 'http://test.mobileiron';
-const PATH = '/company';
-const BASE_URL = `${HOST}${PATH}`;
+const HOST = 'http://test.mobileiron'
+const PATH = '/company'
+const BASE_URL = `${HOST}${PATH}`
 
 describe('mobileiron', function () {
   before(function () {
-    nock.disableNetConnect();
-  });
+    nock.disableNetConnect()
+  })
 
   after(function () {
-    nock.enableNetConnect();
-  });
+    nock.enableNetConnect()
+  })
 
   describe('ping', function () {
     it('should return the results object from <baseUrl>/api/v2/ping', function () {
@@ -30,12 +30,12 @@ describe('mobileiron', function () {
             apiVersion: 2,
             vspVersion: 'VSP x.0.0.0 Build xxx '
           }
-        });
+        })
       assert.eventually.deepEqual(mobileiron.ping(BASE_URL, '123', 'abc'),
         {
           apiVersion: 2,
           vspVersion: 'VSP x.0.0.0 Build xxx '
-        });
-    });
-  });
-});
+        })
+    })
+  })
+})

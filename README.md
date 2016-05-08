@@ -1,4 +1,4 @@
-# mobileiron [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# mobileiron [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 > Unofficial library for MobileIron REST API
 
 ## Installation
