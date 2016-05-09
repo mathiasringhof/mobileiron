@@ -19,7 +19,7 @@ const baseOpts = mobileiron.createBaseOpts('https://xx.mobileiron.net/company/re
 const devicesOpts = mobileiron.createDevicesOpts(baseOpts, ['common.uuid'], 'retired=false', 1)
 mobileiron
   .ping(baseOpts)
-  .then(() => mobileiron.devices(devicesOpts))
+  .then(() => mobileiron.getDevices(devicesOpts))
   .then(devices => devices.map(device => device['common.uuid']))
   .then(deviceUuids => {
     console.log(`Found ${deviceUuids.length} devices with the following UUIDs:\n${deviceUuids.join('\n')}`)

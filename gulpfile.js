@@ -7,6 +7,12 @@ var mocha = require('gulp-mocha')
 var istanbul = require('gulp-istanbul')
 var nsp = require('gulp-nsp')
 var plumber = require('gulp-plumber')
+var jsdoc = require('gulp-jsdoc3')
+
+gulp.task('jsdoc', function (cb) {
+  gulp.src(['README.md', './lib/**/*.js'], { read: false })
+    .pipe(jsdoc(cb))
+})
 
 gulp.task('static', function () {
   return gulp.src('**/*.js')
@@ -17,7 +23,7 @@ gulp.task('static', function () {
 })
 
 gulp.task('nsp', function (cb) {
-  nsp({package: path.resolve('package.json')}, cb)
+  nsp({ package: path.resolve('package.json') }, cb)
 })
 
 gulp.task('pre-test', function () {
@@ -34,7 +40,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 
   gulp.src('test/**/*.js')
     .pipe(plumber())
-    .pipe(mocha({reporter: 'spec'}))
+    .pipe(mocha({ reporter: 'spec' }))
     .on('error', function (err) {
       mochaErr = err
     })

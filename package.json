@@ -43,7 +43,8 @@
     "lint": "gulp static",
     "prepublish": "gulp prepublish",
     "test": "gulp",
-    "test:watch": "gulp watch"
+    "test:watch": "gulp watch",
+    "jsdoc": "gulp jsdoc"
   },
   "license": "Apache-2.0",
   "dependencies": {
