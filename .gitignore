@@ -3,3 +3,4 @@ coverage
 spikes
 npm-debug.log
 docs
+.vscode
