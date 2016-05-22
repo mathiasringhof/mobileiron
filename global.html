@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#createBaseOpts">createBaseOpts</a></li><li><a href="global.html#createDevicesOpts">createDevicesOpts</a></li><li><a href="global.html#getDevices">getDevices</a></li><li><a href="global.html#ping">ping</a></li>
+					<li><a href="global.html#createAppInventoryOpts">createAppInventoryOpts</a></li><li><a href="global.html#createAppInventoryStream">createAppInventoryStream</a></li><li><a href="global.html#createBaseOpts">createBaseOpts</a></li><li><a href="global.html#createDevicesOpts">createDevicesOpts</a></li><li><a href="global.html#getAppInventory">getAppInventory</a></li><li><a href="global.html#getDevices">getDevices</a></li><li><a href="global.html#ping">ping</a></li>
 				</ul>
 			</li>
 			
@@ -141,6 +141,260 @@
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id="createAppInventoryOpts"><span class="type-signature"></span>createAppInventoryOpts(baseOpts, adminDeviceSpaceId, deviceUuids)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Convenience function to create an options object for MobileIron Device API call</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>baseOpts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Object containing basic connection properties. See createBaseOpts.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>adminDeviceSpaceId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>See MobileIronCoreV2APIGuideXX_RevXXXXXXXXX for details. Try 1 if not sure.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>deviceUuids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of UUIDs of devices that should be queried. Maximum number is 25 if using getAppInventory(). See MobileIronCoreV2APIGuideXX_RevXXXXXXXXX for details.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="createAppInventoryStream"><span class="type-signature"></span>createAppInventoryStream()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Calls MobileIron's app inventory API as many times as possible to return a full inventory of the devices requested.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
             
 <hr>
 <dt>
@@ -520,6 +774,158 @@
             
 <hr>
 <dt>
+    <h4 class="name" id="getAppInventory"><span class="type-signature"></span>getAppInventory(opts)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Queries MobileIron's app inventory API to retrieve the installed apps of the devices requested.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Should contain baseUrl, username, password, and adminDeviceSpaceId deviceUuids. See createAppInventoryOpts().</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>App inventory of devices that matched provided UUIDs. See MobileIronCoreV2APIGuideXX_RevXXXXXXXXX for details.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="getDevices"><span class="type-signature"></span>getDevices(opts)</h4>
     
     
@@ -868,7 +1274,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on May 9th 2016, 4:24:36 pm
+		on May 22nd 2016, 4:06:47 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
