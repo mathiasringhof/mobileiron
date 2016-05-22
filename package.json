@@ -1,6 +1,6 @@
 {
   "name": "mobileiron",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Unofficial library for MobileIron REST API. Very very basic right now.",
   "homepage": "",
   "author": {

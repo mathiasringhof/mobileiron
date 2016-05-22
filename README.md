@@ -13,6 +13,8 @@ $ npm install --save mobileiron
 
 ## Usage
 
+### Get UUID of all non-retired devices 
+
 ```js
 const mobileiron = require('mobileiron')
 const baseOpts = mobileiron.createBaseOpts('https://xx.mobileiron.net/company/rest', 'apiuser', 'password')
@@ -29,11 +31,34 @@ mobileiron
   })
 ```
 
+### App inventory stream example
+
+```js
+// transform object to string so we can pipe to stdout
+class StringifyObject extends Transform {
+  constructor () {
+    super({ objectMode: true, decodeStrings: false })
+  }
+
+  _transform (chunk, encoding, cb) {
+    cb(null, JSON.stringify(chunk))
+  }
+}
+
+const baseOpts = mobileiron.createBaseOpts('https://xx.mobileiron.net/company/rest', 'apiuser', 'password')
+const appOpts = mi.createAppInventoryOpts(baseOpts, 1, ['abc-123', 'def-456'])
+mi.createAppInventoryStream(appOpts)
+  .pipe(new StringifyObject())
+  .pipe(process.stdout)
+```
+
 ## TODO / Next up
 
-* tests for devices API
-* app inventory API
-* better error handling (e.g. react to 400, 401 with specific errors)?
+* tests for devices & app inventory API
+* update app inventory API to group devices together based on size to minimize API calls
+* sort for devices API
+* test how to define multiple queries
+* (?) better error handling (e.g. react to 400, 401 with specific errors)
 
 ## License
 
