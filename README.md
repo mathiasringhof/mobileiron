@@ -34,6 +34,9 @@ mobileiron
 ### App inventory stream example
 
 ```js
+const Transform = require('stream').Transform
+const mobileiron = require('mobileiron')
+
 // transform object to string so we can pipe to stdout
 class StringifyObject extends Transform {
   constructor () {
@@ -46,8 +49,8 @@ class StringifyObject extends Transform {
 }
 
 const baseOpts = mobileiron.createBaseOpts('https://xx.mobileiron.net/company/rest', 'apiuser', 'password')
-const appOpts = mi.createAppInventoryOpts(baseOpts, 1, ['abc-123', 'def-456'])
-mi.createAppInventoryStream(appOpts)
+const appOpts = mobileiron.createAppInventoryOpts(baseOpts, 1, ['abc-123', 'def-456'])
+mobileiron.createAppInventoryStream(appOpts)
   .pipe(new StringifyObject())
   .pipe(process.stdout)
 ```
