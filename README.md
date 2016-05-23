@@ -1,6 +1,8 @@
 # mobileiron [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 > Unofficial library for MobileIron's v2 REST API
 
+JSDoc is available [here](http://mathiasringhof.github.io/mobileiron/index.html).
+
 ## Requirements
 
 Developed using Node 5.x, should work with 4.x.  
@@ -58,7 +60,6 @@ mobileiron.createAppInventoryStream(appOpts)
 ## TODO / Next up
 
 * tests for devices & app inventory API
-* update app inventory API to group devices together based on size to minimize API calls
 * sort for devices API
 * test how to define multiple queries
 * (?) better error handling (e.g. react to 400, 401 with specific errors)
