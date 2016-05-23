@@ -1,6 +1,6 @@
 {
   "name": "mobileiron",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Unofficial library for MobileIron REST API. Basic support for device & app inventory retrieval.",
   "homepage": "",
   "author": {
